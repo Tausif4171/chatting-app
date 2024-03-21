@@ -11,12 +11,12 @@ socket.emit('new-user', name)
 
 socket.on('send-message', data => {
     console.log(data)
-    appendMessage(data)
+    appendMessage(`${data.name}: ${data.message}`)
 })
 
 socket.on('user-connected', data => {
     console.log(data)
-    appendMessage(data)
+    appendMessage(`${data} connected`)
 })
 
 messageForm.addEventListener('submit', e => {
