@@ -15,5 +15,10 @@ io.on('connection', socket => {
         socket.broadcast.emit('send-message', { message: message, name: users[socket.id] })
     })
 
+    socket.on('disconnect', () => {
+
+        socket.broadcast.emit('user-disconnected', users[socket.id])
+        delete users[socket.id]
+    })
 
 })
