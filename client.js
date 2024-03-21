@@ -21,6 +21,7 @@ socket.on('user-connected', data => {
 
 messageForm.addEventListener('submit', e => {
     e.preventDefault()
+    appendMessage(`You: ${messageInput.value}`)
     socket.emit('send-chat-message', messageInput.value)
     messageInput.value = ''
 })
